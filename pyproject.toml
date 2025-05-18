@@ -1,10 +1,24 @@
-[project]
-name = "python-template"
-version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
-requires-python = ">=3.11"
-dependencies = [
-    "python-telegram-bot>=22.1",
-    "telegram>=0.0.1",
-]
+[tool.uv.sources]
+taming-transformers = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+= [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+swarmauri = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hjxdl = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+swarms-memory = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hkkang-utils = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+swebench = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hordelib = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+syft = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hpsv2 = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+sympytorch = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+huggingface-hub = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+syne-tune = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hummingbird-ml = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+synthcity = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hvae-backbone = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+t5 = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hya = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+tab-transformer-pytorch = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+hypothesis-torch = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+tabpfn = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+ibm-metrics-plugin = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
+ibm-watson-machine-learning = [{ index = "pytorch-cpu", marker = "platform_system == 'Linux'" }]
