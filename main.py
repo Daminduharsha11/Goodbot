@@ -1,26 +1,33 @@
-
 import os
-from telegram.ext import Application, CommandHandler, MessageHandler, filters
+import logging
+from telegram import Update
+from telegram.ext import (
+            ApplicationBuilder,
+            ContextTypes,
+            CommandHandler,
+        )
 
-async def start(update, context):
-    await update.message.reply_text('Hello! I am your bot.')
+        # Enable logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-async def echo(update, context):
-    await update.message.reply_text(update.message.text)
+        # Load environment variables
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 
-def main():
-    token = os.getenv('TELEGRAM_TOKEN')
-    if not token:
-        print("Please set the TELEGRAM_TOKEN environment variable")
-        return
+        # Basic /start command
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+            await update.message.reply_text("Hey! Bot is alive and working!")
 
-    app = Application.builder().token(token).build()
+async def main():
+            # Create the application
+            app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
+            # Add a simple command handler
+            app.add_handler(CommandHandler("start", start))
 
-    print("Bot is starting...")
-    app.run_polling()
-
-if __name__ == '__main__':
-    main()
+            # Start the bot
+            logger.info("Bot is running...")
+            await app.run_polling()
+if __name__ == "__main__":
+            import asyncio
+            asyncio.run(main())
