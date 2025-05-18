@@ -1,4 +1,3 @@
-
 import os
 import logging
 import nest_asyncio
@@ -12,6 +11,7 @@ from telegram.ext import (
     filters,
 )
 from huggingface_hub import InferenceClient
+from plugin_personality import get_personality_prompt
 
 nest_asyncio.apply()
 logging.basicConfig(level=logging.INFO)
@@ -41,7 +41,10 @@ async def human_like_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         completion = client.chat.completions.create(
             model="mistralai/Mistral-7B-Instruct-v0.3",
-            messages=[{"role": "user", "content": user_text}],
+            messages=[
+                {"role": "system", "content": get_personality_prompt()},
+                {"role": "user", "content": user_text},
+            ],
         )
         reply = completion.choices[0].message.content
         await update.message.reply_text(reply)
